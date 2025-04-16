@@ -7,8 +7,8 @@
 - 40 hay bales
 - 1 cherry
 
-**Milk Buckets** - 2.5k gold each (1 vile or 5000 gold for 2)
-**Eggs** - 400 gold each (2500 gold for 6)
-**Sugar** - 250 gold each (3000 gold for 12)
-**Hay bales** - 125 gold each (1 vile or 5000 gold for 40)
-**Cherry** - 500 gold each
+**Milk Buckets** - 2.5k gold each (1 vile or 5000 gold for 2)  
+**Eggs** - 400 gold each (2500 gold for 6)  
+**Sugar** - 250 gold each (3000 gold for 12)  
+**Hay bales** - 125 gold each (1 vile or 5000 gold for 40)  
+**Cherry** - 500 gold each  
