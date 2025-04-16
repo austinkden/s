@@ -11,4 +11,4 @@
 **Eggs** - 400 gold each (2500 gold for 6)  
 **Sugar** - 250 gold each (3000 gold for 12)  
 **Hay bales** - 125 gold each (1 vile or 5000 gold for 40)  
-**Cherry** - 500 gold each  
+**Cherry** - 500 gold each
