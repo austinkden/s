@@ -15,8 +15,8 @@
 **Cherry** - 500 gold each  
 
 # STOCK
-Milk Buckets: None
-Eggs: None
-Sugar: 3
-Hay bales: 40
-Cherry: None
+Milk Buckets: None  
+Eggs: None  
+Sugar: 3  
+Hay bales: 40  
+Cherry: 4  
