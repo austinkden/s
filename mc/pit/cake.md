@@ -1,5 +1,5 @@
-# cake prices
-# PRICES
+# Cake
+# Prices
 **BUNDLE!** - GET ALL INGREDIENTS FOR 3 VILE
 
 **To craft a cake, you need:**
@@ -15,7 +15,7 @@
 **Hay bales** - 125 gold each (1 vile or 5000 gold for 40)  
 **Cherry** - 500 gold each  
 
-# STOCK
+# Stock
 Milk Buckets: None  
 Eggs: None  
 Sugar: 3  
