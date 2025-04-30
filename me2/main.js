@@ -175,6 +175,17 @@ function pages() {
 
                 const maximizeButton = document.querySelector("section.panel div.bar div.actions i.maximize");
                 const closeButton = document.querySelector("section.panel div.bar div.actions i.close");
+
+                maximizeButton.addEventListener("click", () => {
+                    // full page (expanded) code
+                    return;
+                })
+
+                closeButton.addEventListener("click", () => {
+                    document.querySelector(`section.panel div.content.${pageName}`).style.display = "none";
+                    document.querySelector("section.panel").classList.remove("open");
+                    document.querySelector("section.panel p.path").innerHTML = "path";
+                })
             }
         })
     })
