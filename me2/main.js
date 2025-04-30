@@ -162,7 +162,8 @@ function pages() {
 
             let shiftHeld = event.shiftKey;
             if (shiftHeld) {
-                location.href = `/${pageName}`;
+                // full page (expanded) code
+                return;
             } else {
                 document.querySelectorAll("section.panel div.content").forEach(content => {
                     content.style.display = "none";
@@ -171,6 +172,9 @@ function pages() {
                 document.querySelector(`section.panel div.content.${pageName}`).style.display = "flex";
                 document.querySelector("section.panel p.path").innerHTML = pageName;
                 document.querySelector("section.panel").classList.add("open");
+
+                const maximizeButton = document.querySelector("section.panel div.bar div.actions i.maximize");
+                const closeButton = document.querySelector("section.panel div.bar div.actions i.close");
             }
         })
     })

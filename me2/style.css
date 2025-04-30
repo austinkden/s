@@ -318,6 +318,11 @@ section.panel {
             }
         }
     }
+
+    &.full {
+        width: 100%;
+        /* continue as needed */
+    }
 }
 
 div.contextmenu {
