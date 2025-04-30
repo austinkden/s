@@ -115,19 +115,12 @@ function homeSearch() {
         searchBar.classList.add("focused");
         searchInput.focus();
 
-        setTimeout(() => {
-            document.addEventListener("click", (event) => {
-                console.log("120-1");
-                if (document.activeElement !== searchInput) {
-                    return;
-                }
-                console.log("120-2");
-                if (!event.target.closest("div.search")) {
-                    searchBar.classList.remove("focused");
-                    searchInput.blur();
-                }
-            })
-        }, 250);
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest("div.search")) {
+                searchBar.classList.remove("focused");
+                searchInput.blur();
+            }
+        })
     })
 
     searchBar.addEventListener("keydown", (event) => {
