@@ -115,17 +115,19 @@ function homeSearch() {
         searchBar.classList.add("focused");
         searchInput.focus();
 
-        document.addEventListener("click", (event) => {
-            console.log("120-1");
-            if (document.activeElement !== searchInput) {
-                return;
-            }
-            console.log("120-2");
-            if (!event.target.closest("div.search")) {
-                searchBar.classList.remove("focused");
-                searchInput.blur();
-            }
-        })
+        setTimeout(() => {
+            document.addEventListener("click", (event) => {
+                console.log("120-1");
+                if (document.activeElement !== searchInput) {
+                    return;
+                }
+                console.log("120-2");
+                if (!event.target.closest("div.search")) {
+                    searchBar.classList.remove("focused");
+                    searchInput.blur();
+                }
+            })
+        }, 250);
     })
 
     searchBar.addEventListener("keydown", (event) => {
