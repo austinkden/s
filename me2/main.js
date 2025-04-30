@@ -189,6 +189,6 @@ function pages() {
             }
         })
     })
-}   
+}
 
 pages();
