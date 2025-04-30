@@ -112,11 +112,13 @@ function homeSearch() {
     const searchBar = document.querySelector("div.search");
 
     searchBar.addEventListener("click", () => {
+        console.log(114);
         searchBar.classList.add("focused");
         searchInput.focus();
     })
 
     document.addEventListener("click", (event) => {
+        console.log(120);
         if (!event.target.closest("div.search")) {
             searchBar.classList.remove("focused");
             searchInput.blur();
@@ -124,6 +126,7 @@ function homeSearch() {
     })
 
     searchBar.addEventListener("keydown", (event) => {
+        console.log(128);
         if (event.key === "Enter") {
             doSearch();
         } else if (event.key === "Escape") {
@@ -133,10 +136,12 @@ function homeSearch() {
     })
 
     searchBar.querySelector("p.enter-hint").addEventListener("click", () => {
+        console.log(138);
         doSearch();
     })
 
     searchInput.addEventListener("input", () => {
+        console.log(143);
         if (searchInput.value.length > 29) {
             document.querySelector("div.search p.enter-hint").classList.add("hide");
         } else {
@@ -145,6 +150,7 @@ function homeSearch() {
     })
 
     function doSearch() {
+        console.log("F");
         let searchQuery = searchInput.value;
         return; // remove when implemented
         // TODO: Add search functionality
