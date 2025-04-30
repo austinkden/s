@@ -115,14 +115,15 @@ function homeSearch() {
         console.log(114);
         searchBar.classList.add("focused");
         searchInput.focus();
-    })
 
-    document.addEventListener("click", (event) => {
-        console.log(120);
-        if (!event.target.closest("div.search")) {
-            searchBar.classList.remove("focused");
-            searchInput.blur();
-        }
+        document.addEventListener("click", (event) => {
+            console.log(120);
+            if (!event.target.closest("div.search")) {
+                searchBar.classList.remove("focused");
+                searchInput.blur();
+                return;
+            }
+        })
     })
 
     searchBar.addEventListener("keydown", (event) => {
