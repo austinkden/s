@@ -43,3 +43,17 @@ airlineSearch.addEventListener("input", () => {
       }
    });
 });
+
+airlineSearch.addEventListener("input", () => {
+   setTimeout(() => {
+      if (document.querySelectorAll("section.airline div.list div.airline:not(.hidden)").length == 1) {
+         console.log("There is only 1!");
+         document.querySelectorAll("section.airline div.list div.airline").forEach(airline => {
+            airline.classList.remove("selected");
+         })
+         let airline = document.querySelector("section.airline div.list div.airline:not(.hidden)");
+         airline.classList.add("selected");
+         document.querySelector("section.airline button.next").classList.add("allowed");
+      }
+   }, 2);
+});
