@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+    --color-background: #000000;
+    --color-surface: #191816;
+    --color-mid: #2c2b28;
+    --color-tile: #434240;
+    --color-raised: #535250;
+    --color-primary: #fbba40;
+    --color-secondary: #c38e2a;
+    --color-heading: #f6efe3;
+    --color-text: #d7d4cd;
+    --color-dull-text: #bcb9b3;
+    --color-success: #3CCB69;
+    --color-alert: #FF9757;
+    --color-destructive: #EB3F56;
+    /* --- */
+    --color-red: #EB3F56;
+    --color-red-light: #F56A71;
+    --color-red-dark: #CC0621;
+    --color-orange: #FF9757;
+    --color-orange-light: #FFB384;
+    --color-orange-dark: #D2611C;
+    --color-yellow: #FFD357;
+    --color-yellow-light: #FFE292;
+    --color-yellow-dark: #D09D0D;
+    --color-yellowgreen: #A8F809;
+    --color-yellowgreen-light: #CEFC73;
+    --color-yellowgreen-dark: #79AD10;
+    --color-green: #45F936;
+    --color-green-light: #83FC79;
+    --color-green-dark: #16A20A;
+    --color-mint: #18FA94;
+    --color-mint-light: #7FFFC5;
+    --color-mint-dark: #11AC66;
+    --color-teal: #20FED5;
+    --color-teal-light: #8FFAE6;
+    --color-teal-dark: #0DA98D;
+    --color-skyblue: #34AEFF;
+    --color-skyblue-light: #93D1FA;
+    --color-skyblue-dark: #186EA8;
+    --color-blue: #4262EE;
+    --color-blue-light: #9AACFA;
+    --color-blue-dark: #0D28A0;
+    --color-purple: #8A1EF0;
+    --color-purple-light: #C995F8;
+    --color-purple-dark: #6314AD;
+    --color-pink: #EA2FF0;
+    --color-pink-light: #F385F7;
+    --color-pink-dark: #A617AB;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Funnel Sans', sans-serif;
+    transition: 0.4s ease;
+    line-height: 1;
+}
+
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+body {
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    cursor: default;
+}
+
+.ih {
+    display: none;
+}
+
+.surface {
+    background-color: var(--color-surface);
+}
+
+.mid {
+    background-color: var(--color-mid);
+}
+
+.tile {
+    background-color: var(--color-tile);
+}
+
+.raised {
+    background-color: var(--color-raised);
+}
+
+.font-brand {
+    font-family: 'Jua', sans-serif;
+}
+
+.font-mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* --------------------------------------------------------------------------------- 1 */
+
+#set1 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p.brand {
+        color: var(--color-primary);
+        font-size: 100px;
+    }
+
+    p.credit {
+        color: var(--color-dull-text);
+        font-size: 25px;
+    }
+}
+
+/* --------------------------------------------------------------------------------- 2 */
+
+#set2 {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    div.buttons {
+        width: 50vw;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    button.generate {
+        font-size: 50px;
+        width: 70%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: var(--color-primary);
+        color: var(--color-background);
+        border-radius: 25px 10px 10px 25px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    button.generate:hover {
+        filter: brightness(0.75);
+    }
+
+    button.edit {
+        font-size: 50px;
+        width: 30%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: var(--color-primary);
+        color: var(--color-background);
+        border-radius: 10px 25px 25px 10px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    button.edit:hover {
+        filter: brightness(0.75);
+    }
+
+    p.output {
+        color: var(--color-heading);
+        font-size: 25px;
+        width: 50vw;
+        max-height: 30vh;
+        min-height: 10vh;
+        padding: 10px 20px;
+        background-color: var(--color-mid);
+        border-radius: 25px;
+        border: 2px solid var(--color-mid);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* --------------------------------------------------------------------------------- Popups */
+
+#popups {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.75);
+
+    div.edit {
+       background-color: var(--color-surface);
+       width: 40vw;
+       padding: 20px;
+       max-height: 80vh;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       border-radius: 25px;
+       box-shadow: 0px 0px 20px var(--color-background);
+       opacity: 1;
+       
+       h1.title {
+        color: var(--color-primary);
+        font-size: 50px;
+        margin-bottom: 10px;
+       }
+
+       textarea.input {
+        background-color: var(--color-mid);
+        border-radius: 15px;
+        outline: none;
+        width: 100%;
+        height: 30vw;
+        padding: 15px;
+        color: var(--color-text);
+        resize: none;
+        font-size: 15px;
+        line-height: 1.25;
+        margin-bottom: 15px;
+        border: 2px solid var(--color-mid);
+       }
+
+       textarea.input::placeholder {
+        color: var(--color-raised);
+        transition: 0.4s ease;
+        filter: brightness(1.5);
+       }
+
+       textarea.input:hover {
+        border: 2px solid var(--color-raised);
+       }
+
+       textarea.input:focus {
+        border: 2px solid var(--color-primary);
+       }
+
+       div.buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+       }
+
+       div.buttons button {
+        font-size: 25px;
+        border-radius: 15px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 15px;
+       }
+       
+       div.buttons button:hover {
+        filter: brightness(0.75);
+       }
+
+       button.cancel {
+        width: 50%;
+        background-color: var(--color-raised);
+        color: var(--color-dull-text);
+       }
+
+       button.save {
+        width: 50%;
+        background-color: var(--color-primary);
+        color: var(--color-background);
+       }
+    }
+}
+
+/* --------------------------------------------------------------------------------- All */
+
+.full-cover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-secondary);
+    width: 100%;
+    height: 0%;
+    transition: 0.75s ease;
+    z-index: 9;
+}
+
+.all-brand {
+    color: var(--color-primary);
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    text-shadow: 0px 0px 20px var(--color-background);
+    height: 100%;
+    font-size: 40px;
+    z-index: 10;
+    cursor: pointer;
+}
