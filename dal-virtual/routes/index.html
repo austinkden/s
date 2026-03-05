@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Routes - Delta Air Lines Virtual</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/austinkden/img/refs/heads/main/dalv/logo.png" type="image/png">
+    <link href="/dalv/style.css" rel="stylesheet"/>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </noscript>
+
+    <meta property="og:title" content="Delta Air Lines Virtual" />
+    <meta property="og:description" content="The official website for Project Flight Delta Air Lines Virtual" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/austinkden/img/refs/heads/main/dalv/logo.png" />
+    <meta property="og:url" content="https://austinkden.github.io/dalv" />
+    <meta property="og:type" content="website" />
+  </head>
+  <body id="routes">
+    <section class="background"></section>
+    <section class="selection">
+      <p class="route"></p>
+      <p class="aircraft"></p>
+    </section>
+    <section class="form">
+      <div class="page pg0 departure-airport">
+        <p class="question">What airport will you be departing from?</p>
+        <input type="text" class="answer" maxlength="4">
+        <p class="enter-hint">Press enter to continue.</p>
+      </div>
+      <div class="page pg1 arrival-airport">
+        <p class="question">What airport will you be arriving at?</p>
+        <input type="text" class="answer" maxlength="4">
+        <p class="enter-hint">Press enter to continue.</p>
+      </div>
+      <div class="page pg2 departure-runway">
+        <p class="question">What runway will you be departing from?</p>
+        <input type="text" class="answer" maxlength="3">
+        <p class="enter-hint">Press enter to continue.</p>
+      </div>
+      <div class="page pg3 aircraft-type">
+        <p class="question">What aircraft will you be flying?</p>
+        <input type="text" class="answer" maxlength="4">
+        <p class="enter-hint">Press enter to continue.</p>
+      </div>
+      <div class="page pg4 arrival-runway-decide">
+        <p class="question">Do you know which runway you will be arriving on?</p>
+        <button class="yes">Yes <span class="keyboard">Y</span></button>
+        <button class="no">No <span class="keyboard">N</span></button>
+      </div>
+      <div class="page pg5 arrival-runway">
+        <p class="question">What runway will you be arriving on?</p>
+        <input type="text" class="answer" maxlength="3">
+        <p class="enter-hint">Press enter to continue.</p>
+      </div>
+      <div class="page pg6 sid-decide">
+        <p class="question">A SID is available. Would you like to use it?</p>
+        <p class="name">SID</p>
+        <p class="waypoints">AN ERROR OCCURRED</p>
+        <button class="yes">Yes <span class="keyboard">Y</span></button>
+        <button class="no">No <span class="keyboard">N</span></button>
+      </div>
+      <div class="page pg7 star-decide">
+        <p class="question">A STAR is available. Would you like to use it?</p>
+        <p class="name">STAR</p>
+        <p class="waypoints">AN ERROR OCCURRED</p>
+        <button class="yes">Yes <span class="keyboard">Y</span></button>
+        <button class="no">No <span class="keyboard">N</span></button>
+      </div>
+    </section>
+    <section class="final">
+      <section class="results">
+        <div class="route">
+          <p class="departure">MDPC</p>
+          <i class="fa-solid fa-plane"></i>
+          <p class="arrival">EGKK</p>
+        </div>
+        <div class="aircraft">
+          <p class="type">A350</p>
+        </div>
+        <div class="section-heading departure">
+          <i class="fa-solid fa-plane-departure"></i>
+          <p>Departure Information</p>
+        </div>
+        <div class="information departure">
+          <div class="content airport-name">
+            <div class="icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <p>Punta Cana</p>
+          </div>
+          <div class="content runway">
+            <div class="icon">
+              <i class="fa-solid fa-road"></i>
+            </div>
+            <p class="mono">09</p>
+          </div>
+          <div class="content sid">
+            <div class="icon">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+            <p>Vectors for Departure</p>
+          </div>
+        </div>
+        
+        <div class="section-heading arrival">
+          <i class="fa-solid fa-plane-arrival"></i>
+          <p>Arrival Information</p>
+        </div>
+        <div class="information arrival">
+          <div class="content airport-name">
+            <div class="icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <p>London Gatwick</p>
+          </div>
+          <div class="content runway">
+            <div class="icon">
+              <i class="fa-solid fa-road"></i>
+            </div>
+            <p>26L</p>
+          </div>
+          <div class="content star">
+            <div class="icon">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+            <p>Vectors for Departure</p>
+          </div>
+        </div>
+  
+        <div class="section-heading enroute">
+          <i class="fa-solid fa-plane"></i>
+          <p>Enroute Information</p>
+        </div>
+        <div class="information enroute">
+          <div class="content route">
+            <div class="icon">
+              <i class="fa-solid fa-route"></i>
+            </div>
+            <p class="mono">KATOK ROSE AHHDH AHHHD</p>
+          </div>
+          <div class="content altitude">
+            <div class="icon">
+              <i class="fa-solid fa-ruler-vertical"></i>
+            </div>
+            <p>FL050</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button class="copy-plan">
+          <i class="fa-solid fa-clipboard"></i>
+          <p>Copy Flight Plan</p>
+        </button>
+        <button class="copy-route">
+          <i class="fa-solid fa-route"></i>
+          <p>Copy Full Route</p>
+        </button>
+        <button class="dep-charts">
+          <i class="fa-solid fa-map"></i>
+          <p>Departure Charts</p>
+        </button>
+        <button class="arr-charts">
+          <i class="fa-solid fa-map"></i>
+          <p>Arrival Charts</p>
+        </button>
+      </section>
+    </section>
+
+    <div class="overlay">
+      <div class="content">
+        <p class="label">Flight Number</p>
+        <div class="flight-number input-duo">
+          <p class="airline">DELTA</p>
+          <input type="text">
+        </div>
+        <p class="enter-hint">Press enter to continue.</p>
+        <p class="escape-hint">Press ecsape to exit.</p>
+      </div>
+    </div>
+    
+    <script defer type="text/javascript" src="/dalv/data.js"></script>
+    <script defer type="text/javascript" src="/dalv/main.js"></script>
+  </body>
+</html>

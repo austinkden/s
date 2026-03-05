@@ -1,0 +1,1147 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+
+:root {
+    --color-background: #000000;
+    --color-surface: #111111;
+    --color-mid: #222222;
+    --color-tile: #333333;
+    --color-raised: #444444;
+    --brand-red: #C01933;
+    --brand-navy: #003366;
+    --brand-green: #94A545;
+    --brand-orange: #EA8A1A;
+    --brand-yellow: #D7C700;
+    --brand-purple: #B090B0;
+    --brand-lightblue: #7799CC;
+    --brand-darkblue: #002A50;
+    /* --- */
+    --color-red: #EB3F56;
+    --color-red-light: #F56A71;
+    --color-red-dark: #CC0621;
+    --color-orange: #FF9757;
+    --color-orange-light: #FFB384;
+    --color-orange-dark: #D2611C;
+    --color-yellow: #FFD357;
+    --color-yellow-light: #FFE292;
+    --color-yellow-dark: #D09D0D;
+    --color-yellowgreen: #A8F809;
+    --color-yellowgreen-light: #CEFC73;
+    --color-yellowgreen-dark: #79AD10;
+    --color-green: #45F936;
+    --color-green-light: #83FC79;
+    --color-green-dark: #16A20A;
+    --color-mint: #18FA94;
+    --color-mint-light: #7FFFC5;
+    --color-mint-dark: #11AC66;
+    --color-teal: #20FED5;
+    --color-teal-light: #8FFAE6;
+    --color-teal-dark: #0DA98D;
+    --color-skyblue: #34AEFF;
+    --color-skyblue-light: #93D1FA;
+    --color-skyblue-dark: #186EA8;
+    --color-blue: #4262EE;
+    --color-blue-light: #9AACFA;
+    --color-blue-dark: #0D28A0;
+    --color-purple: #8A1EF0;
+    --color-purple-light: #C995F8;
+    --color-purple-dark: #6314AD;
+    --color-pink: #EA2FF0;
+    --color-pink-light: #F385F7;
+    --color-pink-dark: #A617AB;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+    transition: 0.3s ease;
+    user-select: none;
+    cursor: default;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: var(--brand-lightblue);
+    color: black;
+}
+
+body {
+    background-color: var(--color-background);
+    min-height: 100vh;
+}
+
+.surface {
+    background-color: var(--color-surface);
+}
+
+.mid {
+    background-color: var(--color-mid);
+}
+
+.tile {
+    background-color: var(--color-tile);
+}
+
+.raised {
+    background-color: var(--color-raised);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25%, 75% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.5s ease;
+}
+
+button, input, select, textarea {
+    outline: none;
+}
+
+body#home section.banner {
+    height: 100vh;
+    width: 100vw;
+    background: url(https://github.com/austinkden/img/blob/main/dalv/banners/moon-717.png?raw=true);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+body#home section.banner div.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 120px 50px 100px 50px;
+}
+
+body#home section.banner div.content div.branding {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+body#home section.banner div.content div.branding img {
+    height: 100px;
+}
+
+body#home section.banner div.content div.branding p {
+    font-size: 70px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0px 0px 20px black;
+}
+
+body#home section.banner div.content p.welcome {
+    color: white;
+    font-size: 20px;
+    text-shadow: 0px 0px 10px black;
+    padding-left: 10px;
+    max-width: 40em;
+}
+
+body#home section.banner div.content div.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 15px;
+    padding-left: 10px;
+}
+
+body#home section.banner div.content div.buttons button {
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 8px 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px -5px black;
+}
+
+body#home section.banner div.content div.buttons button:hover {
+    box-shadow: 0px 0px 15px -5px black;
+}
+
+body#home section.banner div.content div.buttons button:active {
+    transition: box-shadow 0s ease;
+    box-shadow: 0px 0px 8px -5px black;
+}
+
+body#home section.banner div.content div.buttons button.join-discord {
+    background: var(--brand-red);
+}
+
+body#home section.banner div.content div.buttons button.learn-more {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+body#home section.banner i.hint-arrow {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 25px;
+    color: rgba(255, 255, 255);
+    text-shadow: 0px 0px 10px black;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+}
+
+body#home footer {
+    padding: 30px;
+    background: var(--brand-navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+body#home footer div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+body#home footer div p.header {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+body#home footer div p:not(.header) {
+    color: white;
+    font-size: 20px;
+}
+
+body#home footer div p:not(.header) a {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0px 1px 0px 2px;
+}
+
+body#home footer div p:not(.header) a:hover {
+    text-decoration: none;
+    background: white;
+    color: var(--brand-navy);
+}
+
+body#routes {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+body#routes section.background {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: -1;
+    filter: brightness(0.5);
+    background-size: cover;
+    background-position: center;
+}
+
+body#routes section.selection {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    padding: 10px;
+}
+
+body#routes section.selection p {
+    font-size: 20px;
+    color: white;
+    text-shadow: 0px 0px 10px black;
+}
+
+body#routes section.form {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 15px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+body#routes section.form div.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body#routes section.form div.page p.question {
+    width: 100%;
+    text-wrap: wrap;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+body#routes section.form div.page input.answer {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 20px;
+    box-shadow: 0px 0px 10px black;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+    cursor: text;
+}
+
+body#routes section.form div.page input.answer:hover {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+body#routes section.form div.page input.answer:focus {
+    border: 2px solid white;
+}
+
+body#routes section.form div.page input.answer.invalid {
+    border: 2px solid var(--color-red);
+    animation: shake 0.5s ease;
+}
+
+body#routes section.form div.page p.enter-hint {
+    color: white;
+    opacity: 0.5;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+body#routes section.form div.page p.name,
+body#routes section.form div.page p.waypoints {
+    color: white;
+    width: 100%;
+    text-wrap: wrap;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+}
+
+body#routes section.form div.page p.name {
+    font-size: 18px;
+    opacity: 0.85;
+}
+
+body#routes section.form div.page p.waypoints {
+    font-size: 15px;
+    opacity: 0.75;
+    margin-bottom: 10px;
+}
+
+body#routes section.form div.page button {
+    width: 100%;
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0px 0px 10px black;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    margin-top: 2px;
+}
+
+body#routes section.form div.page button span.keyboard {
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+    font-family: 'DM Mono', monospace;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3px;
+    border-radius: 5px;
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    opacity: 0.85;
+    display: inline-block;
+}
+
+body#routes section.form div.page button:hover {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+body#routes section.form div.page button.yes {
+    margin-bottom: 5px;
+}
+
+body#routes section.form div.page input.answer {
+    width: 4em;
+}
+
+body#routes section.form div.page:not(.pg0) {
+    display: none;
+}
+
+body#routes section.final {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    height: 100%;
+    width: 100%;
+    margin-top: 30px;
+}
+
+body#routes section.final section.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px black;
+    min-width: 350px;
+    max-width: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body#routes section.final section.results div.route {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+body#routes section.final section.results > div.route p {
+    color: white;
+    font-size: 30px;
+    font-family: 'DM Mono', monospace;
+}
+
+body#routes section.final section.results div.route i {
+    color: white;
+    opacity: 0.75;
+    font-size: 20px;
+}
+
+body#routes section.final section.results div.aircraft {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: -8px;
+}
+
+body#routes section.final section.results div.aircraft p {
+    color: white;
+    font-size: 20px;
+    font-family: 'DM Mono', monospace;
+}
+
+body#routes section.final section.results div.section-heading {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    gap: 7px;
+}
+
+body#routes section.final section.results div.section-heading i {
+    color: white;
+    opacity: 0.75;
+    font-size: 15px;
+}
+
+body#routes section.final section.results div.section-heading p {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+body#routes section.final section.results div.information {
+    display: flex;
+    flex-direction: column;
+    gap: -2px;
+    margin-top: -8px;
+    width: 100%;
+}
+
+body#routes section.final section.results div.information div.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    gap: 7px;
+}
+
+body#routes section.final section.results div.information div.content div.icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+}
+
+body#routes section.final section.results div.information div.content i {
+    color: white;
+    opacity: 0.5;
+    font-size: 13px;
+}
+
+body#routes section.final section.results div.information div.content p {
+    color: white;
+    font-size: 16px;
+}
+
+body#routes section.final section.results div.information div.content p.mono {
+    font-family: 'DM Mono', monospace;
+}
+
+body#routes section.final section.results div.information.enroute div.content.route p {
+    text-wrap: wrap;
+    max-width: 20em;
+}
+
+body#routes section.final section.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 15px black;
+    width: 300px;
+}
+
+body#routes section.final section.actions div.row {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+body#routes section.final section.actions button {
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 8px 10px;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px -5px black;
+    border: 2px solid transparent;
+    background: rgba(150, 150, 150, 0.2);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+body#routes section.final section.actions button i {
+    cursor: pointer;
+}
+
+body#routes section.final section.actions button.complete {
+    background: rgba(150, 150, 150, 0.2);
+}
+
+body#routes section.final section.actions button.complete.copy-plan {
+    transform: translateY(-3px);
+}
+
+body#routes section.final section.actions button.complete.copy-route {
+    transform: translateY(3px);
+}
+
+body#routes section.final section.actions button.complete i {
+    color: #94A545 !important;
+}
+
+body#routes section.final section.actions button p {
+    cursor: pointer;
+}
+
+body#routes section.final section.actions button:hover {
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+body#routes section.final section.actions button:active {
+    transition: 0.05s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(150, 150, 150, 0.25);
+}
+
+body#routes section.final section.actions button.dep-charts,
+body#routes section.final section.actions button.arr-charts {
+    display: none;
+}
+
+body#routes {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+body#routes section.background {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: -1;
+    filter: brightness(0.5);
+    background-size: cover;
+    background-position: center;
+}
+
+body#partners section.list {
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+}
+
+body#partners section.list div.partner {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    cursor: pointer;
+    gap: 0;
+}
+
+body#fleet section.list {
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+}
+
+body#fleet section.list div.aircraft {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    cursor: pointer;
+    gap: 0;
+}
+
+body#fleet section.list div.aircraft img,
+body#fleet section.list div.aircraft > p {
+    cursor: pointer;
+}
+
+body#fleet section.list div.aircraft img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    object-position: center;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: brightness(0.6);
+}
+
+body#fleet section.list div.aircraft:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.8);
+}
+
+body#fleet section.list div.aircraft p.code {
+    display: none;
+    color: white;
+    font-size: 90px;
+    font-weight: bold;
+    text-shadow: 0px 0px 20px black;
+    z-index: 2;
+}
+
+body#fleet section.list div.aircraft p.code.shown {
+    display: block;
+}
+
+body#fleet section.list div.aircraft div.stats {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body#fleet section.list div.aircraft div.stats.shown {
+    display: flex;
+}
+
+body#fleet section.list div.aircraft div.stats p {
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    z-index: 2;
+    text-shadow: 0px 0px 10px black;
+}
+
+body#fleet section.list div.aircraft div.stats p.type {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+body#fleet section.list div.aircraft div.stats p > b {
+    color: white;
+    font-size: 20px;
+}
+
+body#charts section.list {
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+}
+
+body#charts section.list div.airport {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    cursor: pointer;
+    gap: 0;
+}
+
+body#charts section.list div.airport img,
+body#charts section.list div.airport > p {
+    cursor: pointer;
+}
+
+body#charts section.list div.airport img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    object-position: center;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: brightness(0.6);
+}
+
+body#charts section.list div.airport:hover img {
+    transform: scale(1.25);
+    filter: brightness(0.8);
+}
+
+body#charts section.list div.airport p.code {
+    color: white;
+    font-size: 90px;
+    font-weight: bold;
+    text-shadow: 0px 0px 20px black;
+    z-index: 2;
+}
+
+body#charts section.list div.airport p.name {
+    color: white;
+    font-size: 20px;
+    text-shadow: 0px 0px 15px black;
+    z-index: 2;
+    margin-top: -15px;
+}
+
+div.loading {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--brand-navy);
+    width: 100vw;
+    height: 100vh;
+    gap: 10px;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    z-index: 100;
+}
+
+div.loading p {
+    color: white;
+    font-size: 35px;
+}
+
+/* Navigation bar */
+nav {
+    height: 60px;
+    background: var(--brand-navy);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 5px 10px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    box-shadow: 0px 0px 20px -10px black;
+}
+
+nav img {
+    height: 40px;
+    cursor: pointer;
+}
+
+nav img:hover {
+    filter: brightness(1.2);
+}
+
+nav a.direct,
+nav a.dropper {
+    font-size: 20px;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+nav a.direct:hover,
+nav a.dropper:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+nav a.direct {
+    cursor: pointer;
+}
+
+nav div.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+nav div.dropdown div.dropdown-content-wrapper {
+    top: 100%;
+    height: 50%;
+    width: 100%;
+    position: absolute;
+}
+
+nav div.dropdown div.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--brand-navy);
+    min-width: 150px;
+    box-shadow: 0px 0px 15px -5px black;
+    border-radius: 10px;
+    overflow: hidden;
+    top: 10px;
+    left: 0;
+}
+
+nav div.dropdown div.dropdown-content a {
+    color: white;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    text-wrap: nowrap;
+}
+
+nav div.dropdown div.dropdown-content a:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+nav div.dropdown div.dropdown-content a:active {
+    background: transparent;
+    transition: background 0s ease;
+}
+
+nav div.dropdown:hover div.dropdown-content,
+nav div.dropdown div.dropdown-content:hover,
+nav div.dropdown div.dropdown-content-wrapper:hover {
+    display: block;
+}
+
+div.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.overlay div.content {
+    background: black;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px black;
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    padding: 20px;
+    min-width: 200px;
+    max-width: 400px;
+    max-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.overlay div.content p.enter-hint,
+div.overlay div.content p.escape-hint {
+    color: white;
+    font-size: 15px;
+    margin-top: 10px;
+    color: white;
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+div.overlay div.content p.enter-hint {
+    margin-top: -6px;
+}
+
+
+div.overlay div.content p.escape-hint {
+    margin-top: -3px;
+}
+
+div.overlay div.content p.label {
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+div.overlay div.content div.input-duo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 5px;
+}
+
+div.overlay div.content div.input-duo p {
+    color: white;
+    font-size: 20px;
+}
+
+div.overlay div.content div.input-duo input {
+    width: 4em;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 20px;
+    box-shadow: 0px 0px 10px black;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+    cursor: text;
+}
+
+div.overlay div.content div.input-duo input:hover {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+div.overlay div.content div.input-duo input:focus {
+    border: 2px solid white;
+}
+
+div.overlay div.content div.flight-number {
+    margin-bottom: 10px;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+    body#home section.banner div.content {
+        width: 100vw;
+        padding: 80px 20px 5px;
+    }
+    
+    body#home section.banner div.content div.branding {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    body#home section.banner div.content div.branding img {
+        display: none;
+    }
+    
+    body#home section.banner div.content div.branding p {
+        font-size: 40px;
+    }
+    
+    body#home section.banner div.content p.welcome {
+        text-align: center;
+        padding-left: 0;
+    }
+    
+    body#home section.banner div.content div.buttons {
+        flex-direction: column;
+        width: 100%;
+        padding-left: 0;
+    }
+    
+    body#charts section.list {
+        grid-template-columns: 1fr;
+    }
+    
+    div.loading p {
+        color: white;
+        font-size: 25px;
+        max-width: 90vw;
+        text-wrap: wrap;
+        text-align: center;
+    }
+}
+
+body#partners {
+    overflow-y: scroll;
+}
+
+body#partners section.partners {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 80px 10%;
+    padding: 1%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    box-shadow: #000000 0px 0px 20px -10px;
+}
+
+body#partners section.partners div.header {
+    display: inherit;
+    flex-direction: row;
+    gap: 2%;
+    width: 100%;
+    font-size: 160%;
+    justify-content: inherit;
+    align-items: center;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+body#partners section.partners div.header i {
+    color: white;
+    scale: 1.5;
+}   
+
+body#partners section.partners div.subHeader * {
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;}
+
+body#partners section.partners p {
+    font-size: 200%;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+body#partners section.partners hr {
+    width: 90%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 3px;
+    position: relative;
+}
+
+body#partners section.partners div.partnersRow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 1%;
+    justify-content: center;
+    position: relative;
+}
+
+body#partners section.partners div.partnersRow a.partnerLink {
+    text-decoration: none;
+    height: auto;
+    width: auto;
+    margin: 1%;
+    margin-top: 0.2%;
+    margin-bottom: 0.8%;
+    padding: 1%;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+body#partners section.partners a.partnerLink:hover,
+body#partners section.partners a.partnerLink img.icon:hover,
+body#partners section.partners a.partnerLink p:hover {
+    cursor: pointer;
+}
+
+body#partners section.partners a.partnerLink:hover {
+    scale: 1.1;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+body#partners section.partners a.partnerLink img.icon {
+    height: 128px;
+    width: 128px;
+    border-radius: 64px;
+    margin: 10px;
+    align-items: center;
+}
+
+body#partners section.partners a.partnerLink p.long {
+    font-size: 16px;
+}
+
+body#partners section.background {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: -1;
+    filter: brightness(0.5);
+    background-size: cover;
+    background-position: center;
+}
