@@ -114,7 +114,7 @@ function createBackground() {
 
     svgFiles.forEach(src => {
         const img = document.createElement('img');
-        img.src = `/${src}`;
+        img.src = `/pit-inventory/${src}`;
         img.classList.add("bg-svg");
 
         const randX = Math.random() * 100;
