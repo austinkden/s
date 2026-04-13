@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Google Sans Flex', sans-serif;
+    outline: none;
+}
+
+body {
+    background: linear-gradient(to right, #10091d, black);
+    width: 100vw;
+    min-height: 100svh;
+    padding: 3vh;
+    display: flex;
+    justify-content: center;
+}
+
+div.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50vw;
+}
+
+img.bg-svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 7.5%;
+    pointer-events: none;
+    z-index: -1;
+    user-select: none;
+}
+
+img.bk-circles {
+    opacity: 1%;
+}
+
+div.input-choice-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.25);
+    user-select: none;
+
+    button {
+        padding: 10px 15px;
+        border-radius: 15px;
+        background: rgba(0, 0, 0, 0.25);
+        color: rgba(255, 255, 255, 0.5);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        transition: color 0.25s ease, border 0.25s ease;
+        font-size: 15px;
+        width: 100%;
+
+        &:hover, &:focus {
+            color: rgba(255, 255, 255, 0.75);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+        }
+
+        &.selected {
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.75);
+
+            &:hover, &:focus {
+                border: 2px solid rgba(255, 255, 255, 0.75);
+            }
+        }
+    }
+}
+
+div.input-type-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.25);
+    user-select: none;
+    font-size: 15px;
+
+    div.api-key {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    div.username {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    div.input {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 15px;
+        background: rgba(0, 0, 0, 0.25);
+        color: rgba(255, 255, 255, 0.5);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        transition: color 0.25s ease, border 0.25s ease;
+        width: 100%;
+
+        svg.lucide {
+            color: rgba(255, 255, 255, 0.5);
+            transition: color 0.25s ease;
+        }
+        
+        input {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 15px;
+            transition: color 0.25s ease;
+            height: 100%;
+            width: 100%;
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        &:has(input:focus) {
+            color: rgba(255, 255, 255, 0.75);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+
+            svg.lucide {
+                color: rgba(255, 255, 255, 0.75);
+            }
+        }
+
+        &.valid {
+            svg.lucide {
+                color: #3CCB69;
+            }
+
+            &:has(input:focus) {
+                svg.lucide {
+                    color: #3CCB69;
+                }
+            }
+        }
+
+        &.invalid {
+            svg.lucide {
+                color: #FF4B4B;
+            }
+
+            &:has(input:focus) {
+                svg.lucide {
+                    color: #FF4B4B;
+                }
+            }
+        }
+
+        &.saved {
+            svg.lucide {
+                color: #8859ff;
+            }
+
+            &:has(input:focus) {
+                svg.lucide {
+                    color: #8859ff;
+                }
+            }
+        }
+    }
+
+    button.next {
+        padding: 10px;
+        border-radius: 15px;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        background: #3CCB69;
+        border: 2px solid rgba(255, 255, 255, 0.25);
+        cursor: pointer;
+        transition: background 0.25s ease, color 0.25s ease, border 0.25s ease;
+
+        svg.lucide {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        &:hover, &:focus {
+            border: 2px solid rgba(255, 255, 255, 1);
+        }
+
+        &:focus {
+            border: 2px solid rgba(255, 255, 255, 1);
+        }
+
+        &.not-allowed {
+            cursor: not-allowed;
+            background: rgba(0, 0, 0, 0.25);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+
+            svg.lucide {
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            &:focus {
+                border: 2px solid rgba(255, 255, 255, 0.25);
+            }
+        }
+    }
+
+    div.api-key-options {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+        margin-bottom: 10px;
+        
+        p {
+            color: rgba(255, 255, 255, 0.5);
+            margin-left: 10px;
+        }
+
+        span {
+            font-weight: 600;
+
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.75);
+
+            &.selected {
+                &#api-save-true, &#api-show-true {
+                    color: #3CCB69;
+                }
+
+                &#api-save-false, &#api-show-false {
+                    color: #FF5252;
+                }
+            }
+
+            &.saved {
+                color: #8859ff;
+            }
+        }
+    }
+}
+
+div.type-choice-upload, div.type-choice-paste {
+    display: none;
+}

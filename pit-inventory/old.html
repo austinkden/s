@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypixel Pit Inventory Decoder</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
+    <script src="https://unpkg.com/nbt@0.8.1/nbt.js"></script>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2 { color: #bb86fc; }
+        textarea {
+            width: 100%;
+            height: 150px;
+            background-color: #1e1e1e;
+            color: #fff;
+            border: 1px solid #333;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            font-family: monospace;
+        }
+        button {
+            background-color: #03dac6;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        button:hover { background-color: #018786; }
+        .error { color: #cf6679; font-weight: bold; margin-bottom: 15px; }
+        pre {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #333;
+        }
+        input[type="file"] { margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <h1>Pit Inventory Decoder</h1>
+
+    <label for="fileInput">Upload response.json:</label><br>
+    <input type="file" id="fileInput" accept=".json"><br><br>
+
+    <label for="jsonInput">Or paste raw JSON:</label><br>
+    <textarea id="jsonInput" placeholder='{"success":true,"player":{...}}'></textarea>
+
+    <button id="decodeBtn">Decode</button>
+
+    <div id="errorBox" class="error"></div>
+
+    <h2>Inventory Contents</h2>
+    <pre id="invOutput">Awaiting data...</pre>
+
+    <h2>Ender Chest Contents</h2>
+    <pre id="ecOutput">Awaiting data...</pre>
+
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('jsonInput').value = e.target.result;
+            };
+            reader.readAsText(file);
+        });
+
+        document.getElementById('decodeBtn').addEventListener('click', () => {
+            const errorBox = document.getElementById('errorBox');
+            const invOutput = document.getElementById('invOutput');
+            const ecOutput = document.getElementById('ecOutput');
+            
+            errorBox.textContent = '';
+            invOutput.textContent = 'Processing...';
+            ecOutput.textContent = 'Processing...';
+
+            if (typeof nbt === 'undefined') {
+                errorBox.textContent = "Error: NBT library failed to load. Check your internet connection or CDN.";
+                return;
+            }
+
+            let json;
+            try {
+                json = JSON.parse(document.getElementById('jsonInput').value);
+            } catch (err) {
+                return errorBox.textContent = 'Error: Invalid JSON format.';
+            }
+
+            try {
+                const profile = json?.player?.stats?.Pit?.profile;
+                if (!profile) throw new Error("Pit profile data not found in JSON.");
+
+                const invData = profile.inv_contents;
+                const ecData = profile.inv_enderchest || profile.enderchest_contents;
+
+                processContainer(invData, invOutput);
+                processContainer(ecData, ecOutput);
+            } catch (err) {
+                errorBox.textContent = err.message;
+                invOutput.textContent = 'Failed';
+                ecOutput.textContent = 'Failed';
+            }
+        });
+
+        function processContainer(dataObj, outputElement) {
+            if (!dataObj) {
+                outputElement.textContent = "No data found for this container.";
+                return;
+            }
+
+            try {
+                const uint8Array = getBytes(dataObj);
+                const decompressed = pako.inflate(uint8Array);
+
+                nbt.parse(decompressed, function(error, parsedData) {
+                    if (error) {
+                        outputElement.textContent = "NBT Parse Error: " + error.message;
+                        return;
+                    }
+                    outputElement.textContent = JSON.stringify(simplifyNBT(parsedData), null, 2);
+                });
+            } catch (err) {
+                outputElement.textContent = "Decompression/Processing Error: " + err.message;
+            }
+        }
+
+        function getBytes(dataObj) {
+            // Handle Hypixel byte array format
+            if (dataObj.type === 0 && Array.isArray(dataObj.data)) {
+                return new Uint8Array(dataObj.data);
+            } 
+            // Handle Base64 string format
+            else if (typeof dataObj === 'string') {
+                const binary = atob(dataObj);
+                const bytes = new Uint8Array(binary.length);
+                for (let i = 0; i < binary.length; i++) {
+                    bytes[i] = binary.charCodeAt(i);
+                }
+                return bytes;
+            }
+            throw new Error("Unrecognized data format.");
+        }
+
+function simplifyNBT(parsedData) {
+    const itemsList = parsedData?.value?.i?.value?.value || [];
+    const result = [];
+
+    itemsList.forEach((item, index) => {
+        if (!item.id || !item.id.value) return;
+
+        const tag = item.tag?.value || {};
+        const extra = tag.ExtraAttributes?.value || {};
+        const display = tag.display?.value || {};
+
+        // Helper to strip Minecraft color codes (§a, §l, etc)
+        const stripColors = (str) => str ? str.replace(/§[0-9a-fklmnor]/gi, '') : '';
+
+        const itemInfo = {
+            slot: index,
+            name: stripColors(display.Name?.value) || `Item #${item.id.value}`,
+            count: item.Count?.value || 1,
+            lore: (display.Lore?.value?.value || []).map(line => stripColors(line)),
+        };
+
+        // Extract Pit-specific metadata if it exists
+        if (extra.Lives) itemInfo.lives = `${extra.Lives.value}/${extra.MaxLives?.value || '?'}`;
+        if (extra.Nonce) itemInfo.nonce = extra.Nonce.value;
+        if (extra.UpgradeTier) itemInfo.tier = extra.UpgradeTier.value;
+        
+        // Handle Custom Enchants
+        if (extra.CustomEnchants) {
+            itemInfo.enchants = Object.keys(extra.CustomEnchants.value).map(key => {
+                return `${key} ${extra.CustomEnchants.value[key].value}`;
+            });
+        }
+
+        result.push(itemInfo);
+    });
+
+    return result;
+}
+
+        // Recursively strips out the { type, value } NBT wrapper to make JSON readable
+function cleanTags(tagObj) {
+    if (typeof tagObj !== 'object' || tagObj === null) return tagObj;
+    if (tagObj.value !== undefined) return cleanTags(tagObj.value);
+    const cleanObj = {};
+    for (const key in tagObj) {
+        cleanObj[key] = cleanTags(tagObj[key]);
+    }
+    return cleanObj;
+}
+    </script>
+</body>
+</html>
