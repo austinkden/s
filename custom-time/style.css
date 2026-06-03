@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+
+:root {
+    --color-red: #EB3F56;
+    --color-red-light: #F56A71;
+    --color-red-dark: #CC0621;
+    --color-orange: #FF9757;
+    --color-orange-light: #FFB384;
+    --color-orange-dark: #D2611C;
+    --color-yellow: #FFD357;
+    --color-yellow-light: #FFE292;
+    --color-yellow-dark: #D09D0D;
+    --color-yellowgreen: #A8F809;
+    --color-yellowgreen-light: #CEFC73;
+    --color-yellowgreen-dark: #79AD10;
+    --color-green: #45F936;
+    --color-green-light: #83FC79;
+    --color-green-dark: #16A20A;
+    --color-mint: #18FA94;
+    --color-mint-light: #7FFFC5;
+    --color-mint-dark: #11AC66;
+    --color-teal: #20FED5;
+    --color-teal-light: #8FFAE6;
+    --color-teal-dark: #0DA98D;
+    --color-skyblue: #34AEFF;
+    --color-skyblue-light: #93D1FA;
+    --color-skyblue-dark: #186EA8;
+    --color-blue: #4262EE;
+    --color-blue-light: #9AACFA;
+    --color-blue-dark: #0D28A0;
+    --color-purple: #8A1EF0;
+    --color-purple-light: #C995F8;
+    --color-purple-dark: #6314AD;
+    --color-pink: #EA2FF0;
+    --color-pink-light: #F385F7;
+    --color-pink-dark: #A617AB;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+textarea {
+    color: black;
+    resize: none;
+    border-radius: 20px;
+    padding: 10px;
+    border: 3px solid black;
+    width: 40vw;
+    height: 70vh;
+    font-size: 30px;
+}
+
+button {
+    font-size: 30px;
+    color: black;
+    border-radius: 20px;
+    padding: 10px;
+    border: 3px solid var(--color-green-dark);
+    width: 40vw;
+    color: var(--color-green-dark);
+    text-align: center;
+    background: white;
+    cursor: pointer;
+}
+
+p {
+    font-size: 30px;
+    color: black;
+    border-radius: 20px;
+    padding: 10px;
+    border: 3px solid var(--color-blue-dark);
+    width: 40vw;
+    color: var(--color-blue-dark);
+    text-align: center;
+    background: var(--color-blue-light);
+}
