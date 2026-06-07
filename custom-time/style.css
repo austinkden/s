@@ -59,6 +59,12 @@ body {
     gap: 20px;
 }
 
+@media (max-width: 768px) {
+    textarea, button, p {
+        width: 90vw;
+    }
+}
+
 textarea {
     color: black;
     resize: none;
